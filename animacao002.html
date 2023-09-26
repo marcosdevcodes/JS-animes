@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animção</title>
+    <style>
+        #elementoAnimado {
+            width: 25px;
+            height: 25px;
+            background: #000;
+            margin: 180px auto;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="elementoAnimado"></div>
+
+    <script>
+        const elemento = document.getElementById("elementoAnimado");
+        let angulo = 0;
+        let escala = 1;
+
+        function animarElemento()
+        {
+            angulo += 2; // Aumenta o ângulo de rotação
+            escala += 0.02; // Aumenta a escala gradualmente
+
+            // Aplica transformações CSS para rotação e escala
+            elemento.style.transform = `rotate(${angulo}deg) scale(${escala})`;
+
+            if (escala < 10)
+            {
+                requestAnimationFrame(animarElemento); // Chama a próxima animação
+            }
+        }
+
+        animarElemento(); // Inicia a animação
+    </script>
+</body>
+
+</html>
